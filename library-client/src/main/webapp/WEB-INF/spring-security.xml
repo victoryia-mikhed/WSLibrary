@@ -7,10 +7,10 @@
                  http://www.springframework.org/schema/security/spring-security.xsd">
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/login" access="isAnonymous()"/>
-        <intercept-url pattern="/news*" access="hasAuthority('admin')"/>
-        <intercept-url pattern="/main*" access="hasAuthority('admin')"/>
-        <intercept-url pattern="/authors*" access="hasAuthority('admin')"/>
-        <intercept-url pattern="/tags*" access="hasAuthority('admin')"/>
+        <intercept-url pattern="/news*" access="hasAuthority('client')"/>
+        <intercept-url pattern="/main*" access="hasAuthority('client')"/>
+        <intercept-url pattern="/authors*" access="hasAuthority('client')"/>
+        <intercept-url pattern="/tags*" access="hasAuthority('client')"/>
         <form-login
                 login-page="/login"
                 login-processing-url="/j_spring_security_check"
@@ -25,9 +25,9 @@
             <password-encoder hash="md5"/>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query=
-                                       "SELECT USERNAME as username, PASSWORD as password, 1 AS enabled FROM USERS WHERE USERNAME=?"
+                                       "SELECT NAME as username, PASSWORD as password, 1 AS enabled FROM READERS WHERE NAME=?"
                                authorities-by-username-query=
-                                       "SELECT USERS.USERNAME as username, ROLES.ROLE_NAME as authority from USERS,ROLES where USERS.USERNAME=? AND USERS.ROLE=ROLES.ROLE_ID"/>
+                                       "SELECT READERS.NAME as username, 'client' as authority from READERS where READERS.NAME=?"/>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>
