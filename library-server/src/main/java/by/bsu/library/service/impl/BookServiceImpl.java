@@ -91,4 +91,14 @@ public class BookServiceImpl implements BookService {
             throw new ServiceException(e);
         }
     }
+
+    @Override
+    public List<Book> getAllBooks() throws ServiceException {
+        try {
+             return  bookDao.getAllBooks();
+        } catch (DaoException e) {
+            LOG.error("DaoException in method 'getAllBooks'", e);
+            throw new ServiceException(e);
+        }
+    }
 }

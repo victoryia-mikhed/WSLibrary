@@ -22,6 +22,7 @@ public class BookDaoImpl implements BookDao{
     private static final String SQL_SELECT_BOOK_BY_ID = "SELECT BOOK_ID, AUTHOR, TITLE FROM BOOKS WHERE BOOK_ID=?";
     private static final String SQL_SELECT_BOOKS_BY_TITLE = "SELECT BOOK_ID, AUTHOR, TITLE FROM BOOKS WHERE TITLE  LIKE '%'+?+'%'";
     private static final String SQL_SELECT_BOOKS_BY_AUTHOR = "SELECT BOOK_ID, AUTHOR, TITLE FROM BOOKS WHERE AUTHOR=?";
+    private static final String SQL_SELECT_ALL_BOOKS = "SELECT BOOK_ID, AUTHOR, TITLE FROM BOOKS ORDER BY TITLE";
     private static final String SQL_INSERT_BOOK = "INSERT INTO BOOKS (AUTHOR, TITLE) VALUES (?,?)";
     private static final String SQL_UPDATE_BOOK = "UPDATE BOOKS SET AUTHOR=?, TITLE=? WHERE BOOK_ID=?";
     private static final String SQL_DELETE_BOOK = "DELETE FROM BOOKS WHERE BOOK_ID=?";
@@ -134,6 +135,26 @@ public class BookDaoImpl implements BookDao{
             return books;
         } catch (SQLException e) {
             throw new DaoException("Exception in method getBooksByAuthor", e);
+        } finally {
+            DataSourceUtils.releaseConnection(connection, dataSource);
+        }
+    }
+
+    @Override
+    public List<Book> getAllBooks() throws DaoException {
+        Connection connection = DataSourceUtils.getConnection(dataSource);
+        ResultSet resultSet;
+        List<Book> books = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(SQL_SELECT_ALL_BOOKS)) {
+            resultSet = ps.executeQuery();
+            Book book;
+            while (resultSet.next()) {
+                book = initBook(resultSet);
+                books.add(book);
+            }
+            return books;
+        } catch (SQLException e) {
+            throw new DaoException("Exception in method getAllBooks", e);
         } finally {
             DataSourceUtils.releaseConnection(connection, dataSource);
         }

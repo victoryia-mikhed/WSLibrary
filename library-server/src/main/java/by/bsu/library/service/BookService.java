@@ -10,4 +10,7 @@ public interface BookService extends Service<Book> {
     List<Book> getBooksByTitle (String title) throws ServiceException;
 
     List<Book> getBooksByAuthor (String author) throws ServiceException;
+
+    List<Book> getAllBooks () throws ServiceException;
+
 }
