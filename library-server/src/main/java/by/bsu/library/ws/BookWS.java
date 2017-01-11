@@ -30,4 +30,7 @@ public interface BookWS {
     @WebMethod
     List<Book> getBooksByAuthor(String author) throws ServiceException;
 
+    @WebMethod
+    List<Book> getAllBooks () throws ServiceException;
+
 }

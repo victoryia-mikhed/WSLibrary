@@ -47,4 +47,9 @@ public class BookWSImpl implements BookWS{
     public List<Book> getBooksByAuthor(String author) throws ServiceException {
         return bookService.getBooksByAuthor(author);
     }
+
+    @Override
+    public List<Book> getAllBooks() throws ServiceException {
+        return bookService.getAllBooks();
+    }
 }

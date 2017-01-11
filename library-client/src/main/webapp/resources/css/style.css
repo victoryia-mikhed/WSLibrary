@@ -1,0 +1,147 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Calibri, sans-serif;
+    background: #f1f1f1;
+}
+
+.wrapper {
+    background: white;
+    width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 150px;
+}
+
+header {
+    background: white;
+    margin: 0;
+    padding: 15px 20px;
+    clear: both;
+}
+
+.main-header {
+    background: #f1f1f1;
+}
+
+.menu li a:hover {
+    color: #1f987d;
+}
+
+.lang-control a:hover {
+    color: #2c4d54;
+}
+
+.logo {
+    display: inline-block;
+    text-decoration: none;
+    color: #2c4d54;
+    font-weight: bold;
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
+.logo:hover, .logo:focus {
+    text-decoration: none;
+    color: #2c4d54;
+}
+
+.menu {
+    float: right;
+    margin: 7px 0 0 0;
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.link {
+    margin: 0 0 0 20px;
+    color: #105647;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.logout, .login-link {
+    font-weight: bold;
+    margin-left: 35px;
+    text-decoration: underline;
+}
+
+h1 {
+    margin: 0;
+    padding: 15px 20px;
+    background: #1f987d;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(84, 84, 84, 1);
+
+    -webkit-box-shadow: 0 4px 11px -1px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0 4px 11px -1px rgba(50, 50, 50, 0.75);
+    box-shadow: 0 4px 11px -1px rgba(50, 50, 50, 0.75);
+}
+
+.main-content {
+    display: inline-block;
+    width: 100%;
+    padding: 25px 20px;
+    box-sizing: border-box;
+}
+
+footer {
+    padding: 40px 90px;
+    background: #1f987d;
+    color: white;
+    width: 1000px;
+    height: 132px;
+    margin: -132px auto 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.copyright {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footerText {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.form-login {
+    width: 300px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: 'Calibri', sans-serif;
+}
+
+.error-msg {
+    margin-top: 30px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
+
+.logout-success {
+    margin-top: 30px;
+    color: green;
+    font-size: 20px;
+    text-align: center;
+}
+.link {
+    margin: 0 0 0 20px;
+    color: #105647;
+    text-decoration: none;
+    font-size: 18px;
+}
